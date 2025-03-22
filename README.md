@@ -1,5 +1,5 @@
 
-**Building Blocks**
+**Essential Building Blocks**
 ================
 
 A Public Python Package for Commonly Used Functions, Classes, and Data Structures
@@ -47,7 +47,7 @@ Building Blocks currently includes the following modules:
 **License**
 -------
 
-Building Blocks is released under the [MIT License](https://opensource.org/licenses/MIT).
+Building Blocks is released under the [GNU GENERAL PUBLIC LICENSE](LICENSE.txt).
 
 **Acknowledgments**
 ---------------

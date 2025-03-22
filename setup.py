@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name="essential_building_blocks",
-    version="1.0.1",
+    version="1.0.2",
     packages=find_packages(exclude=["tests"]),
     install_requires=[],
     url="https://github.com/TheAdaptoid/Building-Blocks",
