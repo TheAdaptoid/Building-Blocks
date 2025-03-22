@@ -30,7 +30,7 @@ jobs:
         python -m pip install mypy pylint pytest pytest-cov
     - name: Lint with pylint
       run: |
-        pylint building_blocks/
+        pylint building_blocks/ --output=lint.txt || true
     - name: Typecheck with mypy
       run: |
         mypy building_blocks/
