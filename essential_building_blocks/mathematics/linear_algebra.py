@@ -1,4 +1,4 @@
-from building_blocks.data_structures.lists import FixedSizeArray
+from essential_building_blocks.data_structures.lists import FixedSizeArray
 
 
 class Vector(FixedSizeArray):

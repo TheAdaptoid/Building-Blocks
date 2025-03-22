@@ -1,4 +1,7 @@
-from building_blocks.data_structures.common import SingleLinkNode, DoubleLinkNode
+from essential_building_blocks.data_structures.common import (
+    SingleLinkNode,
+    DoubleLinkNode,
+)
 from typing import Any
 
 

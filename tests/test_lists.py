@@ -1,12 +1,15 @@
 from pytest import raises
-from building_blocks.data_structures.lists import (
+from essential_building_blocks.data_structures.lists import (
     SingleLinkList,
     DoubleLinkList,
     Stack,
     Queue,
     FixedSizeArray,
 )
-from building_blocks.data_structures.common import SingleLinkNode, DoubleLinkNode
+from essential_building_blocks.data_structures.common import (
+    SingleLinkNode,
+    DoubleLinkNode,
+)
 
 
 class TestSingleLinkNode:

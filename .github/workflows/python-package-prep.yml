@@ -26,10 +26,10 @@ jobs:
           python -m pip install mypy pylint pytest pytest-cov
       - name: Lint with pylint
         run: |
-          pylint building_blocks/ --output=lint.txt || true
+          pylint essential_building_blocks/ --output=lint.txt || true
       - name: Typecheck with mypy
         run: |
-          mypy building_blocks/
+          mypy essential_building_blocks/
       - name: Test with pytest
         run: |
-          pytest tests/ --cov=building_blocks/
+          pytest tests/ --cov=essential_building_blocks/

@@ -14,8 +14,9 @@ Building Blocks is a Python package designed to simplify the development of scho
 ------------
 
 To install Building Blocks, run the following command:
+
 ```bash
-pip install building-blocks
+pip install essential-building-blocks==1.0.1
 ```
 
 **Contributing**
