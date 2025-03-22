@@ -7,7 +7,7 @@ class SingleLinkList:
     A single linked list.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.head: SingleLinkNode | None = None
         self.tail: SingleLinkNode | None = None
         self.length: int = 0
@@ -139,7 +139,7 @@ class DoubleLinkList:
     A double linked list.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.head: DoubleLinkNode | None = None
         self.tail: DoubleLinkNode | None = None
         self.length: int = 0
