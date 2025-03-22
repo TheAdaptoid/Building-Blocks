@@ -1,0 +1,20 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="building_blocks",
+    version="1.0.0",
+    packages=find_packages(exclude=["tests"]),
+    install_requires=[],
+    url="https://github.com/TheAdaptoid/Building-Blocks",
+    author="Marion Forrest",
+    author_email="111011653+TheAdaptoid@users.noreply.github.com",
+    description="A Python package of common functions, classes, and data structures.",
+    long_description="README.md",
+    long_description_content_type="text/markdown",
+    classifiers=[
+        "Development Status :: 2 - Pre-Alpha",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python :: 3",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+    ],
+)
