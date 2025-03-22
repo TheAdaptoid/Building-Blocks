@@ -24,7 +24,7 @@ pip install building-blocks
 We welcome contributions to Building Blocks! If you'd like to add your code to the package, please follow these steps:
 
 1. Clone the repository: `git clone https://github.com/your-username/building-blocks.git`
-2. Create a new folder for your code, including a `README.md` file and an example implementation.
+2. Create a new module or add to an existing module.
 3. Add your name and project to the contributors list in `README.md`.
 4. Submit a pull request to the main repository.
 
@@ -33,7 +33,6 @@ We welcome contributions to Building Blocks! If you'd like to add your code to t
 
 Building Blocks currently includes the following modules:
 
-* `machine_learning`: A K-Means clustering implementation with example usage.
 * `data_structures`: A collection of common data structures.
 * `mathematics`: A collection of common mathematical functions and classes.
 
