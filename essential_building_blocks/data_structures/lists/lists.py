@@ -1,8 +1,8 @@
-from essential_building_blocks.data_structures.common import (
+from typing import Any
+from essential_building_blocks.data_structures.types import (
     SingleLinkNode,
     DoubleLinkNode,
 )
-from typing import Any
 
 
 class SingleLinkList:
@@ -95,16 +95,15 @@ class SingleLinkList:
         if self.is_empty() or self.head is None:
             raise IndexError("List is empty")
 
-        else:
-            prev_tail = self.tail
-            current_node = self.head
+        prev_tail = self.tail
+        current_node = self.head
 
-            # iterate to the second last node
-            while current_node.next is not None:
-                current_node = current_node.next
+        # iterate to the second last node
+        while current_node.next is not None:
+            current_node = current_node.next
 
-            self.tail = current_node
-            self.tail.next = None
+        self.tail = current_node
+        self.tail.next = None
 
         self.length -= 1
 

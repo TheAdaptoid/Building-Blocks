@@ -6,7 +6,7 @@ from essential_building_blocks.data_structures.lists import (
     Queue,
     FixedSizeArray,
 )
-from essential_building_blocks.data_structures.common import (
+from essential_building_blocks.data_structures.types import (
     SingleLinkNode,
     DoubleLinkNode,
 )
