@@ -1,7 +1,7 @@
-from essential_building_blocks.data_structures.lists import FixedSizeArray
+from essential_building_blocks.data_structures.lists import Array
 
 
-class Vector(FixedSizeArray):
+class Vector(Array):
     """
     A vector in n-dimensional space.
     """
@@ -13,7 +13,7 @@ class Vector(FixedSizeArray):
         Args:
             dimensions (int): The dimensionality of the vector.
         """
-        super().__init__(size=dimensions, data_type=float)
+        super().__init__(size=dimensions, dtype=float)
 
         self.dimensions: int = dimensions
 

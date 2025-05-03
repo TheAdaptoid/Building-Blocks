@@ -1,8 +1,9 @@
+from typing import Any, overload
+from collections.abc import Sequence
 from essential_building_blocks.data_structures.common import (
     SingleLinkNode,
     DoubleLinkNode,
 )
-from typing import Any
 
 
 class SingleLinkList:
@@ -373,30 +374,49 @@ class Queue(DoubleLinkList):
         return self.head.value
 
 
-class FixedSizeArray:
+class Array(Sequence):
     """
-    A fixed-size array implemented using the built-in list data type.
+    An array (of fixed size) implemented using the `Sequence` interface.
     """
 
-    def __init__(self, size: int, data_type: type | None = None):
+    def __init__(self, size: int, dtype: type | None = None):
         # Validate size
         if not isinstance(size, int):
-            raise TypeError("Size must be an integer")
+            raise TypeError("`size` must be an integer")
         if size < 0:
-            raise ValueError("Size must be non-negative")
+            raise ValueError("`size` must be non-negative")
 
-        self.size: int = size
-        self.__type = data_type
-        self.__array: list = [None] * size
+        # Validate dtype
+        if dtype is not None and not isinstance(dtype, type):
+            raise TypeError("`dtype` must be a data type")
 
-    def __iter__(self):
-        return iter(self.__array)
+        self.__size: int = size
+        self.__type: type | None = dtype
+        self.__list: list = [None] * size
+
+    @property
+    def size(self) -> int:
+        """
+        The size of the array.
+        """
+        return self.__size
+
+    @property
+    def dtype(self) -> type | None:
+        """
+        The data type of the array.
+        None if the dtype is not set.
+        """
+        return self.__type
 
     def __len__(self):
-        return self.size
+        return self.__size
 
-    def __getitem__(self, index: int) -> Any:
-        return self.__array[index]
+    def __iter__(self):
+        return iter(self.__list)
+
+    def __getitem__(self, index: int | slice) -> Any | Sequence:
+        return self.__list[index]
 
     def __setitem__(self, index: int, value: Any) -> None:
         # check type
@@ -405,10 +425,52 @@ class FixedSizeArray:
                 f"Expected {self.__type.__name__}, got {type(value).__name__}"
             )
 
-        self.__array[index] = value
+        self.__list[index] = value
 
     def __str__(self):
-        return str(self.__array)
+        return self.__list.__str__()
 
     def __repr__(self):
-        return str(self)
+        return f"Array(size={self.__size}, dtype={self.__type})"
+
+    def __add__(self, other):
+        raise AttributeError("Array size is fixed. Cannot add new elements.")
+
+    def __iadd__(self, other):
+        self.__add__(other)
+
+    def __radd__(self, other):
+        self.__add__(other)
+
+    def __mul__(self, other):
+        raise AttributeError("Array size is fixed. Cannot add new elements.")
+
+    def __imul__(self, other):
+        self.__mul__(other)
+
+    def __rmul__(self, other):
+        self.__mul__(other)
+
+    @classmethod
+    def from_sequence(cls, sequence: Sequence) -> "Array":
+        """
+        Create an array from a sequence.
+        The dtype of the array will be the same as the dtype of
+        the first element of the sequence.
+        Sequences are indexable objects similar to lists, tuples, and strings.
+
+        Args:
+            sequence (Sequence): The sequence to create the array from.
+
+        Returns:
+            Array: The array created from the sequence.
+        """
+        if not isinstance(sequence, Sequence):
+            raise TypeError("sequence must be a sequence")
+
+        array = cls(len(sequence), type(sequence[0]))
+
+        for index, value in enumerate(sequence):
+            array[index] = value
+
+        return array

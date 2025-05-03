@@ -4,7 +4,7 @@ from essential_building_blocks.data_structures.lists import (
     DoubleLinkList,
     Stack,
     Queue,
-    FixedSizeArray,
+    Array,
 )
 from essential_building_blocks.data_structures.common import (
     SingleLinkNode,
@@ -438,18 +438,18 @@ class TestQueue:
 
 class TestFixedSizeArray:
     def test_init(self):
-        array = FixedSizeArray(3)
-        assert array.size == 3
+        array = Array(3)
+        assert array.__size == 3
 
     def test_invalid_size(self):
         with raises(ValueError):
-            FixedSizeArray(-1)
+            Array(-1)
 
         with raises(TypeError):
-            FixedSizeArray("1")
+            Array("1")
 
     def test_getitem(self):
-        array = FixedSizeArray(3)
+        array = Array(3)
         array[0] = 1
         array[1] = 2
         array[2] = 3
@@ -461,7 +461,7 @@ class TestFixedSizeArray:
             array[3]
 
     def test_setitem(self):
-        array = FixedSizeArray(3)
+        array = Array(3)
         array[0] = 1
         array[1] = 2
         array[2] = 3
@@ -473,37 +473,37 @@ class TestFixedSizeArray:
             array[3] = 4
 
     def test_setitem_type(self):
-        array = FixedSizeArray(3, int)
+        array = Array(3, int)
         with raises(TypeError):
             array[0] = "1"
 
-        array = FixedSizeArray(3, str)
+        array = Array(3, str)
         with raises(TypeError):
             array[0] = 1
 
-        array = FixedSizeArray(3, int)
+        array = Array(3, int)
         array[0] = 1
 
     def test_len(self):
-        array = FixedSizeArray(3)
+        array = Array(3)
         assert len(array) == 3
 
     def test_iter(self):
-        array = FixedSizeArray(3)
+        array = Array(3)
         array[0] = 1
         array[1] = 2
         array[2] = 3
         assert list(array) == [1, 2, 3]
 
     def test_str(self):
-        array = FixedSizeArray(3)
+        array = Array(3)
         array[0] = 1
         array[1] = 2
         array[2] = 3
         assert str(array) == "[1, 2, 3]"
 
     def test_repr(self):
-        array = FixedSizeArray(3)
+        array = Array(3)
         array[0] = 1
         array[1] = 2
         array[2] = 3
